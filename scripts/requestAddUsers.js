@@ -1,10 +1,12 @@
+require("dotenv").config();
+
 let dummy_users = [
   { username: "big dog", password: "bigdog"}
 ];
 
 // dummy_users = [{ username: "big dog", password: "bigdog" }];
-
-const URL = "http://localhost:3000/users";
+const PORT = process.env.SERVER_PORT;
+const URL = `http://localhost:${PORT}/users`;
 
 dummy_users.forEach(async (user) => {
   try {

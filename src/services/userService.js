@@ -14,12 +14,7 @@ const registerUser = async (username, password) => {
     console.error(
       `Error creating user in userService.registerUser: ${error.message}`,
     );
-    // Determine what to return based on the type of error.
-    // This can be a generic error message, an error code, or a custom error object.
-    // The specific response will depend on your application's requirements and error handling strategy.
-    // For example:
-    if (error.message === "User already exists") {
-      // This could correspond to a 409 Conflict HTTP status code in your controller.
+   if (error.message === "User already exists") {
       return {
         error: true,
         message: "Username already taken",
@@ -27,8 +22,6 @@ const registerUser = async (username, password) => {
         data: {username}
       };
     } else {
-      // For unexpected errors, consider a generic response.
-      // This could correspond to a 500 Internal Server Error HTTP status code in your controller.
       return {
         error: true,
         message: error.message,
