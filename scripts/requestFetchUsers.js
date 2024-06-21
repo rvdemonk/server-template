@@ -1,4 +1,7 @@
-const URL = "http://localhost:3000/users";
+require("dotenv").config();
+
+const PORT = process.env.SERVER_PORT;
+const URL = `http://localhost:${PORT}/users`;
 
 fetch(URL)
   .then((response) => {
