@@ -3,7 +3,7 @@ const Router = require("koa-router");
 const bodyParser = require("koa-bodyparser");
 const userRoutes = require("./routes/userRoutes");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3333;
 
 const app = new Koa();
 const router = new Router();
