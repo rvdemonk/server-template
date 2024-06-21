@@ -13,7 +13,18 @@ const getAllUsers = async () => {
   return result.rows;
 };
 
+const findUserByUsername = async (username) => {
+  const query = "SELECT * from users WHERE username = $1";
+  const result = await pool.query(query, [username]);
+  if (result.rows.length > 0) {
+    return result.rows[0]; // Return the first user matching the username.
+  } else {
+    return null; // No user found with that username.
+  }
+};
+
 module.exports = {
-  createUser, // existing function
+  createUser,
   getAllUsers,
+  findUserByUsername,
 };

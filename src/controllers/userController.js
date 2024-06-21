@@ -1,9 +1,11 @@
+const userService = require("../services/userService");
 const userRepository = require("../repositories/userRepository");
 
 const createUser = async (ctx) => {
   const { username, password } = ctx.request.body;
-  // Here, you would hash the password before saving. Skipping for brevity.
-  const user = await userRepository.createUser(username, password);
+  console.log("adding" + username);
+  const user = await userService.registerUser(username, password);
+  console.log({ function: "create user service", value: user });
   ctx.body = user;
 };
 

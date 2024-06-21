@@ -5,6 +5,7 @@
     "prettier": "npx prettier . --write"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "koa": "^2.15.3",
     "koa-bodyparser": "^4.4.1",
