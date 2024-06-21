@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "prettier": "npx prettier . --write"
+  },
   "dependencies": {
     "dotenv": "^16.4.5",
     "koa": "^2.15.3",
@@ -7,6 +12,7 @@
     "pg": "^8.12.0"
   },
   "devDependencies": {
+    "nodemon": "^3.1.4",
     "prettier": "^3.3.2"
   }
 }
