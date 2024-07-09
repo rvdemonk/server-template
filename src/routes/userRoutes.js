@@ -1,8 +1,6 @@
-const userController = require("../controllers/userController");
+import { createUser, fetchAllUsers } from "../controllers/userController.js";
 
-const userRoutes = (router) => {
-  router.post("/users", userController.createUser);
-  router.get("/users", userController.getAllUsers);
+export const userRoutes = (router) => {
+  router.get("/users", fetchAllUsers);
+  router.post("/users", createUser);
 };
-
-module.exports = userRoutes;

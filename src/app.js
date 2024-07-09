@@ -1,8 +1,10 @@
-const Koa = require("koa");
-const Router = require("koa-router");
-const bodyParser = require("koa-bodyparser");
-const userRoutes = require("./routes/userRoutes");
+import "dotenv/config.js";
+import Koa from "koa";
+import Router from "koa-router";
+import bodyParser from "koa-bodyparser";
+import cors from "@koa/cors";
 
+import { userRoutes } from "./routes/userRoutes.js";
 
 const PORT = process.env.SERVER_PORT;
 const URL = `http://localhost:${PORT}/users`;
@@ -11,6 +13,10 @@ const app = new Koa();
 const router = new Router();
 
 app.use(bodyParser());
+
+router.get("/", ctx => {
+  ctx.body = `<html>rvdemonk server template</html>`;
+});
 
 userRoutes(router);
 

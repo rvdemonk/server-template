@@ -1,20 +1,15 @@
-const userService = require("../services/userService");
-const userRepository = require("../repositories/userRepository");
+import { registerUser } from "../services/userService.js";
+import { getAllUsers } from "../repositories/userRepository.js";
 
-const createUser = async (ctx) => {
+export const createUser = async (ctx) => {
   const { username, password } = ctx.request.body;
   console.log("adding" + username);
-  const user = await userService.registerUser(username, password);
+  const user = await registerUser(username, password);
   console.log({ function: "create user service", value: user });
   ctx.body = user;
 };
 
-const getAllUsers = async (ctx) => {
-  const users = await userRepository.getAllUsers();
+export const fetchAllUsers = async (ctx) => {
+  const users = await getAllUsers();
   ctx.body = users;
-};
-
-module.exports = {
-  createUser,
-  getAllUsers,
 };
